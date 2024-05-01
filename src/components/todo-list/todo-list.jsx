@@ -6,13 +6,14 @@ export const TodoList = (props) => {
   const { todos, setTodos } = props;
 
   const handleDelete = (id) => {
-    // Function to delete task
+    //Function to delete todos
+    setTodos(prev => prev.filter(prevTodo => prevTodo.id !== id))
   };
 
   const toggleCheck = (id) => {
-    // Function to toggle task
+    //Function to toggle todos
+   setTodos(prev => prev.map(prevTodo => prevTodo.id === id ? {...prevTodo, checked: !prevTodo.checked}: prevTodo))
   };
-
   const handleKeyUp = (e, id) => {
     if (e.keyCode === 13) {
       toggleCheck(id);

@@ -40,6 +40,12 @@ const todosTemplate = [
 export const App = () => {
   const [todos, setTodos] = React.useState([]);
 
+  React.useEffect(() => {
+    todos.map((todo, i) => {
+      todo.id = i
+    })
+  }, [todos])
+
   return (
     <div className="app">
       <TodoList todos={todos} setTodos={setTodos} />

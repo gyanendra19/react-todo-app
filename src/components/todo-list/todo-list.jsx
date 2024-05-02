@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Checkbox } from "../checkbox";
 import "./todo-list.scss";
+import { Checkboxx } from "../checkbox/checkbox";
+import { Typography } from "@mui/material";
 
 export const TodoList = (props) => {
   const { todos, setTodos } = props;
@@ -26,7 +28,7 @@ export const TodoList = (props) => {
       {todos.length ? (
         <div className="todo-list-content">
           {todos.map((todoItem) => (
-            <Checkbox
+            <Checkboxx
               key={todoItem.id}
               label={todoItem.label}
               checked={todoItem.checked}
@@ -37,7 +39,7 @@ export const TodoList = (props) => {
           ))}
         </div>
       ) : (
-        <div className="no-todos">Looks like you&apos;re absolutely free today!</div>
+        <Typography className="no-todos">Looks like you&apos;re absolutely free today!</Typography>
       )}
     </div>
   );

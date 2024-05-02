@@ -1,8 +1,9 @@
 import * as React from 'react';
 import './checkbox.scss';
+import { Button, Checkbox } from '@mui/material'
 
-export const Checkbox = ({
- onClick, checked, onDelete, label, onKeyUp,
+export const Checkboxx = ({
+  onClick, checked, onDelete, label, onKeyUp,
 }) => (
   <div className="checkbox">
     <div
@@ -13,11 +14,17 @@ export const Checkbox = ({
       onClick={onClick}
       onKeyUp={onKeyUp}
     >
-      <input tabIndex="-1" type="checkbox" checked={checked} onChange={onClick} />
+      <Checkbox
+      sx={{padding: '0'}}
+        tabIndex="-1"
+        checked={checked}
+        onChange={onClick}
+        inputProps={{ 'aria-label': 'controlled' }}
+      />
       <span className={checked ? 'checkbox-checked' : ''}>{label}</span>
     </div>
-    <button type="button" className="checkbox-delete" onClick={onDelete}>
+    <Button sx={{padding: '0px', '&:hover': {backgroundColor: 'darkgray'}, color: 'black', bgcolor:'gray'}} type="button" className="checkbox-delete" onClick={onDelete}>
       x
-    </button>
+    </Button>
   </div>
 );

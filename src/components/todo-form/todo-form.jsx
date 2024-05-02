@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./todo-form.scss";
+import { Button, TextField } from "@mui/material";
 
 export const TodoForm = (props) => {
   const { todos, setTodos } = props;
@@ -18,10 +19,11 @@ export const TodoForm = (props) => {
 
   return (
     <div className="todo-form">
-      <input placeholder="Enter new task" value={task} onChange={(e) => setTask(e.target.value)} onKeyUp={handleKeyUp} />
-      <button type="button" onClick={handleAddTodo}>
+      <TextField sx={{padding: '0'}} id="outlined-basic" label="Enter new task" variant="outlined" value={task} onChange={(e) => setTask(e.target.value)} onKeyUp={handleKeyUp}/>
+
+      <Button sx={{bgcolor:'blue', color:'white', '&:hover': {backgroundColor: 'darkblue'}, padding: '10px', marginLeft: '12px', height:'40px'}} type="button" onClick={handleAddTodo}>
         Add task
-      </button>
+      </Button>
     </div>
   );
 };
